@@ -11,6 +11,7 @@
     "debug": "~2.2.0",
     "ejs": "^2.4.1",
     "express": "~4.13.1",
+    "express-force-ssl": "^0.3.0",
     "fill-pdf": "^0.1.4",
     "iconv": "^2.1.11",
     "jade": "~1.11.0",
