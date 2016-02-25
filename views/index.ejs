@@ -1,0 +1,100 @@
+<body>
+  <form action="genPDF" target="_blank" method="post">
+    Accession Number
+    <input type="text" name="accessionNumber">
+    <br>
+    <br>
+
+    Provider NPI Number
+    <input type="text" name="providerNPI">
+    <br>
+    <br>
+
+    Provider Name
+    <input type="text" name="providerName">
+    <br>
+    <br>
+
+    Patient Last Name
+    <input type="text" name="patientLastName">
+    <br>
+    <br>
+
+    Patient Middle Initial
+    <input type="text" name="patientMiddleInitial">
+    <br>
+    <br>
+
+    Patient First Name
+    <input type="text" name="patientFirstName">
+    <br>
+    <br>
+
+    Patient DOB (MM, DD, YY)
+    <input type="number" name="patientDOBMM"><input type="number" name="patientDOBDD"><input type="number" name="patientDOBYY">
+    <br>
+    <br>
+
+    Patient Sex (0 = Female, 1 = Male)
+    <input type="number" name="patientGender" min="0" max="1">
+    <br>
+    <br>
+
+    Patient Phone Number (Area Code, Suffix)
+    <input type="number" name="patientAreaCode" maxlength="3"><input type="number" name="patientPhoneNo" maxlength="6">
+    <br>
+    <br>
+
+    Date Service Began (MM, DD, YY)
+    <input type="number" name="serviceBeganMM"><input type="number" name="serviceBeganDD"><input type="number" name="serviceBeganYY">
+    <br>
+    <br>
+
+    Date Service Ended (MM, DD, YY)
+    <input type="number" name="serviceEndedMM"><input type="number" name="serviceEndedDD"><input type="number" name="serviceEndedYY">
+    <br>
+    <br>
+
+    Services Charge$
+    <input type="number" name="serviceCharges">
+    <br>
+    <br>
+    <!-- Implement from here down in controller -->
+    Patient Street Address
+    <input type="text" name="patientStreetAddress">
+    <br>
+    <br>
+
+    Patient City
+    <input type="text" name="patientCity">
+    <br>
+    <br>
+
+    Patient State
+    <input type="text" name="patientState">
+    <br>
+    <br>
+
+    Patient Zip Code
+    <input type="text" name="patientZip">
+    <br>
+    <br>
+
+    Patient City
+    <input type="text" name="patientCity">
+    <br>
+    <br>
+
+    <input type="radio" name="outputType" value="download">
+    Download Copy
+    <input type="radio" name="outputType" value="inline">
+    Show in Browser
+    <br>
+
+    <input type="submit" value="Generate PDF">
+
+    <button type="submit">Submit</button>
+    <!--Title for button is same as that of the page-->
+  </form>
+
+</body>
