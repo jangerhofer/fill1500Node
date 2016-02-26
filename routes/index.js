@@ -19,7 +19,7 @@ router.post('/genPDF', function(req, res, next) {
     if ( !err ) {
       res.type("application/pdf");
       if (req.body.outputType == "inline") {
-          res.setHeader('Content-disposition', 'inline; filename=someName.pdf');
+            res.setHeader('Content-disposition', 'inline; filename=someName.pdf');
       }
       else {
           res.setHeader('Content-disposition', 'attachment; filename=someName.pdf');
