@@ -6,7 +6,7 @@ var fillPdf = require("fill-pdf");
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
-    title: 'Express'
+    title: '1500 Form Generator'
   });
 });
 
@@ -34,6 +34,10 @@ router.post('/genPDF', function(req, res, next) {
     }
   });
 
+})
+
+router.get('/genPDF', function(req, res, next) {
+  res.redirect("/")
 })
 
 module.exports = router;
