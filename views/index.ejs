@@ -2,7 +2,7 @@
   <head></head>
   <body>
     <% if (locals.error) { %>
-      <div style="color: red;">Please login first!</div>
+      <div style="color: red;"><%= error %></div>
     <% } %>
     <form method="post" action="/login">
       <p>
