@@ -1,0 +1,243 @@
+<script>
+  function clickClear() {
+    document.getElementById("fillForm").reset();
+  }
+</script>
+
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Foundation | Welcome</title>
+<link rel="stylesheet" href="css/foundation.css"/>
+<link rel="stylesheet" href="css/app.css"/>
+<link rel="stylesheet" href="css/test.css"/>
+<script src="js/vendor/jquery.min.js"></script>
+<script src="js/vendor/what-input.min.js"></script>
+<script src="js/foundation.min.js"></script>
+<script src="js/app.js"></script>
+
+<body>
+  <form id="fillForm" action="genPDF" target="_blank" method="post">
+
+    <div class="row">
+      <div class="large-6 columns">
+
+        <div class="callout small">
+          <h3>
+            Provider Information
+          </h3>
+          Accession Number
+          <input type="text" name="accessionNumber">
+
+          Provider NPI Number
+          <input type="text" name="providerNPI">
+
+          Provider Name
+          <input type="text" name="providerName">
+        </div>
+
+        <div class="callout small">
+          <h3>
+            Service Information
+          </h3>
+
+          Date Service Began / Collection Date
+          <div class="row">
+            <div class="large-3 columns">
+              <input type="number" name="serviceBeganMM" placeholder="MM">
+            </div>
+            <div class="large-3 columns">
+              <input type="number" name="serviceBeganDD" placeholder="DD">
+            </div>
+            <div class="large-3 columns">
+              <input type="number" name="serviceBeganYY" placeholder="YY">
+            </div>
+          </div>
+
+          Date Service Ended / Collection Date
+          <div class="row">
+            <div class="large-3 columns">
+              <input type="number" name="serviceEndedMM" placeholder="MM">
+            </div>
+            <div class="large-3 columns">
+              <input type="number" name="serviceEndedDD" placeholder="DD">
+            </div>
+            <div class="large-3 columns">
+              <input type="number" name="serviceEndedYY" placeholder="YY">
+            </div>
+          </div>
+
+          Services Charges
+          <div class="input-group">
+            <span class="input-group-label">$</span>
+            <input class="input-group-field" type="number" name="serviceCharges">
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="large-6 columns">
+
+        <div class="callout small">
+          <h3>
+            Patient Information
+          </h3>
+          Patient Last Name
+          <input type="text" name="patientLastName">
+
+          Patient Middle Initial
+          <input type="text" name="patientMiddleInitial">
+
+          Patient First Name
+          <input type="text" name="patientFirstName">
+
+          Patient DOB
+          <div class="row">
+            <div class="large-3 columns">
+              <input type="number" name="patientDOBMM" placeholder="MM">
+            </div>
+            <div class="large-3 columns">
+              <input type="number" name="patientDOBDD" placeholder="DD">
+            </div>
+            <div class="large-3 columns">
+              <input type="number" name="patientDOBYY" placeholder="YY">
+            </div>
+          </div>
+
+          Patient Gender
+          <input type="radio" name="patientGender" value="1">
+          Male
+          <input type="radio" name="patientGender" value="0" checked>
+          Female
+          <br>
+
+          Patient Phone Number (Area Code, Suffix)
+          <div class="row">
+            <div class="large-6 columns">
+              <input type="number" name="patientAreaCode" maxlength="3" placeholder="XXX-">
+            </div>
+            <div class="large-6 columns">
+              <input type="number" name="patientPhoneNo" maxlength="6" placeholder="XXX-XXXX">
+            </div>
+          </div>
+
+          Patient Street Address
+          <input type="text" name="patientStreetAddress">
+
+          <div class="row">
+            <div class="large-3 columns">
+              Patient City
+              <input type="text" name="patientCity">
+            </div>
+            <div class="large-3 columns">
+              Patient State
+              <input type="text" name="patientState">
+            </div>
+            <div class="large-3 columns">
+              Patient Zip Code
+              <input type="text" name="patientZip">
+            </div>
+          </div>
+
+          Employer Name (Optional)
+          <input type="text" name="employerName">
+
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="large-12 columns">
+        <div class="callout small">
+          <h3>Insurance Information</h3>
+          Insurance Carrier #1
+          <input type="text" name="insuranceCarrier1">
+
+          Insurance Carrier #1 Claim Address
+          <input type="text" name="insuranceCarrier1Address">
+
+          Subscriber Name 1
+          <input type="text" name="subscriberName1">
+
+          Subscriber #1 DOB -- (MM, DD, YY)
+          <div class="row">
+            <div class="large-3 columns">
+              <input type="number" name="subscriber1DOBMM" placeholder="MM">
+            </div>
+            <div class="large-3 columns">
+              <input type="number" name="subscriber1DOBDD" placeholder="DD">
+            </div>
+            <div class="large-3 columns">
+              <input type="number" name="subscriber1DOBYY" placeholder="YY">
+            </div>
+          </div>
+
+          Subscriber ID 1
+          <input type="text" name="subscriber1ID">
+
+          Group Number 1
+          <input type="text" name="groupNumber1">
+
+          <div class="row">
+            <div class="large-3 columns">
+              Charge Code (CPT)
+              <input type="text" name="cptCode">
+            </div>
+            <div class="large-3 columns">
+              Units
+              <input type="text" name="units">
+            </div>
+            <div class="large-3 columns">
+              Modifier
+              <input type="text" name="modifier">
+            </div>
+          </div>
+
+          Amount
+          <input type="text" name="amount">
+
+          DX1
+          <input type="text" name="dx1">
+
+          DX2
+          <input type="text" name="dx2">
+
+          DX3
+          <input type="text" name="dx3">
+
+          DX4
+          <input type="text" name="dx4">
+
+          DX5
+          <input type="text" name="dx5">
+
+          DX6
+          <input type="text" name="dx6">
+
+          DX7
+          <input type="text" name="dx7">
+
+          DX8
+          <input type="text" name="dx8">
+
+          DX9
+          <input type="text" name="dx9">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div id="formControls" class="large-6 large-centered columns">
+
+        <input type="radio" name="outputType" value="download">
+        Download Copy
+        <input type="radio" name="outputType" value="inline" checked>
+        View in Browser
+
+        <button class="success button" type="submit">Submit</button>
+        <button onclick="clickClear(); return false" class="alert button">Clear Form</button>
+
+      </div>
+    </form>
+
+  </body>
