@@ -1,19 +1,32 @@
 <html lang="en">
-  <head></head>
+  <head>
+    <link rel="stylesheet" href="css/foundation.css"/>
+    <link rel="stylesheet" href="css/app.css"/>
+  </head>
   <body>
     <% if (locals.error) { %>
-      <div style="color: red;"><%= error %></div>
+      <div class="alert callout">
+        <p><%= error %></p>
+      </div>
     <% } %>
+
     <form method="post" action="/login">
-      <p>
-        <label for="username">Username</label>
-        <input type="text" name="username"/>
-      </p>
-      <p>
-        <label for="password">Password</label>
-        <input type="password" name="password"/>
-      </p>
-      <input type="submit"/>
+      <div class="row">
+        <div class="medium-6 columns">
+          <label>Username
+            <input type="text" name="username">
+          </label>
+        </div>
+        <div class="medium-6 columns">
+          <label>Password
+            <input type="password" name="password" >
+          </label>
+        </div>
+      </div>
+      <center>
+        <input class="button" type="submit"></input>
+      </center>
     </form>
+
   </body>
 </html>

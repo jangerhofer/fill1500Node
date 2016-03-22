@@ -42,10 +42,11 @@ router.post('/genPDF', function(req, res, next) {
   fillPdf.generatePdf(formData, "../../1500template.pdf", function(err, output) {
     if (!err) {
       res.type("application/pdf");
-      if (par.outputType == "inline") {
-        res.setHeader('Content-disposition', 'inline; filename=' + formData.accessionNo_26 + '.pdf');
-      } else {
+      console.log(par.submitType);
+      if (par.submitType == "dl") {
         res.setHeader('Content-disposition', 'attachment; filename=' + formData.accessionNo_26 + '.pdf');
+      } else {
+        res.setHeader('Content-disposition', 'inline; filename=' + formData.accessionNo_26 + '.pdf');
       }
 
       res.send(output);

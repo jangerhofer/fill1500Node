@@ -6,10 +6,9 @@
 
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Foundation | Welcome</title>
+<title>Fill 1500</title>
 <link rel="stylesheet" href="css/foundation.css"/>
 <link rel="stylesheet" href="css/app.css"/>
-<link rel="stylesheet" href="css/test.css"/>
 <script src="js/vendor/jquery.min.js"></script>
 <script src="js/vendor/what-input.min.js"></script>
 <script src="js/foundation.min.js"></script>
@@ -22,9 +21,9 @@
       <div class="large-6 columns">
 
         <div class="callout small">
-          <h3>
+          <h1>
             Provider Information
-          </h3>
+          </h1>
           Accession Number
           <input type="text" name="accessionNumber">
 
@@ -36,9 +35,9 @@
         </div>
 
         <div class="callout small">
-          <h3>
+          <h1>
             Service Information
-          </h3>
+          </h1>
 
           Date Service Began / Collection Date
           <div class="row">
@@ -79,9 +78,9 @@
       <div class="large-6 columns">
 
         <div class="callout small">
-          <h3>
+          <h1>
             Patient Information
-          </h3>
+          </h1>
           Patient Last Name
           <input type="text" name="patientLastName">
 
@@ -150,7 +149,7 @@
 
       <div class="large-12 columns">
         <div class="callout small">
-          <h3>Insurance Information</h3>
+          <h1>Insurance Information</h1>
           Insurance Carrier #1
           <input type="text" name="insuranceCarrier1">
 
@@ -226,18 +225,33 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div id="formControls" class="large-6 large-centered columns">
+    <div id="floatingBar">
+      <center>
+        <div id="formControls" class="large-6 large-centered columns">
 
-        <input type="radio" name="outputType" value="download">
-        Download Copy
-        <input type="radio" name="outputType" value="inline" checked>
-        View in Browser
+          <button class="button" id="submitDownload">Download Form</button>
+          <button class="success button" id="submitView">View in Browser</button>
+          <button onclick="clickClear(); return false" class="alert button">Clear Form</button>
 
-        <button class="success button" type="submit">Submit</button>
-        <button onclick="clickClear(); return false" class="alert button">Clear Form</button>
+        </div>
+      </center>
+    </div>
+  </form>
 
-      </div>
-    </form>
+  <script>
+    $(function() {
+      $("#submitDownload").click(function() {
+        $("[name=\"submitType\"]").remove()
+        var input = $("<input>").attr("type", "hidden").attr("name", "submitType").val("dl");
+        $('#fillForm').append($(input));
+      })
 
-  </body>
+      $("#submitView").click(function() {
+        $("[name=\"submitType\"]").remove()
+        var input = $("<input>").attr("type", "hidden").attr("name", "submitType").val("view");
+        $('#fillForm').append($(input));
+      })
+
+    })
+  </script>
+</body>
