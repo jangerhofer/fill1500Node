@@ -1,9 +1,11 @@
 <html lang="en">
   <head>
+    <title>1500 Form</title>
     <link rel="stylesheet" href="css/foundation.css"/>
     <link rel="stylesheet" href="css/app.css"/>
   </head>
   <body>
+    <div id="loginForm">
     <% if (locals.error) { %>
       <div class="alert callout">
         <p><%= error %></p>
@@ -27,6 +29,6 @@
         <input class="button" type="submit"></input>
       </center>
     </form>
-
+</div>
   </body>
 </html>

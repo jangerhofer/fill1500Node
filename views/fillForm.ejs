@@ -104,9 +104,9 @@
           </div>
 
           Patient Gender
-          <input type="radio" name="patientGender" value="1">
+          <input type="radio" name="patientGender" value="1" checked>
           Male
-          <input type="radio" name="patientGender" value="0" checked>
+          <input type="radio" name="patientGender" value="0">
           Female
           <br>
 
@@ -192,34 +192,27 @@
               <input type="text" name="modifier">
             </div>
           </div>
-
           Amount
-          <input type="text" name="amount">
-
+          <div class="input-group">
+            <span class="input-group-label">$</span>
+            <input class="input-group-field" type="number" name="amount">
+          </div>
           DX1
           <input type="text" name="dx1">
-
           DX2
           <input type="text" name="dx2">
-
           DX3
           <input type="text" name="dx3">
-
           DX4
           <input type="text" name="dx4">
-
           DX5
           <input type="text" name="dx5">
-
           DX6
           <input type="text" name="dx6">
-
           DX7
           <input type="text" name="dx7">
-
           DX8
           <input type="text" name="dx8">
-
           DX9
           <input type="text" name="dx9">
         </div>
@@ -251,7 +244,6 @@
         var input = $("<input>").attr("type", "hidden").attr("name", "submitType").val("view");
         $('#fillForm').append($(input));
       })
-
     })
   </script>
 </body>
