@@ -31,38 +31,39 @@
 
         <div class="callout small">
           <h1>
-            Service Information
+            Collection Information
           </h1>
           Date Service Began / Collection Date
           <div class="row">
             <div class="large-3 columns">
-              <input type="number" name="serviceBeganMM" placeholder="MM">
+              <input type="number" name="collectionDateFromMM" placeholder="MM">
             </div>
             <div class="large-3 columns">
-              <input type="number" name="serviceBeganDD" placeholder="DD">
+              <input type="number" name="collectionDateFromDD" placeholder="DD">
             </div>
             <div class="large-3 columns">
-              <input type="number" name="serviceBeganYY" placeholder="YY">
+              <input type="number" name="collectionDateFromYY" placeholder="YY">
             </div>
           </div>
 
           Date Service Ended / Collection Date
           <div class="row">
             <div class="large-3 columns">
-              <input type="number" name="serviceEndedMM" placeholder="MM">
+              <input type="number" name="collectionDateToMM" placeholder="MM">
             </div>
             <div class="large-3 columns">
-              <input type="number" name="serviceEndedDD" placeholder="DD">
+              <input type="number" name="collectionDateToDD" placeholder="DD">
             </div>
             <div class="large-3 columns">
-              <input type="number" name="serviceEndedYY" placeholder="YY">
+              <input type="number" name="collectionDateToYY" placeholder="YY">
             </div>
           </div>
 
-          <div class="input-group">
+        <!--  <div class="input-group">
             <span class="input-group-label">$</span>
             <input class="input-group-field" type="number" name="serviceCharges" placeholder="Services Charges">
           </div>
+        -->
 
         </div>
 
@@ -118,7 +119,7 @@
               <input type="text" name="patientZip" placeholder="Zip Code">
             </div>
           </div>
-          <input type="text" name="employerName" placeholder="Employer Name (Optional)">
+          <input type="text" name="insuredEmployerName" placeholder="Insured Employer Name (Optional)">
         </div>
 
       </div>
@@ -130,7 +131,7 @@
           <h1>Insurance Information</h1>
           <input type="text" name="insuranceCarrier1" placeholder="Insurance Carrier #1">
           <input type="text" name="insuranceCarrier1Address" placeholder="Insurance Carrier #1 Claim Address">
-          <input type="text" name="subscriberName1" placeholder="Subscriber Name 1">
+          <input type="text" name="subscriber1Name" placeholder="Subscriber Name 1">
           Subscriber #1 DOB -- (MM, DD, YY)
           <div class="row">
             <div class="large-3 columns">
@@ -148,28 +149,28 @@
 
           <div class="row">
             <div class="large-3 columns">
-              <input type="text" name="cptCode" placeholder="Charge Code (CPT)">
+              <input type="text" name="chargeCode" placeholder="Charge Code (CPT)">
             </div>
             <div class="large-3 columns">
-              <input type="text" name="units" placeholder="Units">
+              <input type="text" name="chargeUnits" placeholder="Units">
             </div>
             <div class="large-3 columns">
-              <input type="text" name="modifier" placeholder="Modifier">
+              <input type="text" name="chargeModifier" placeholder="Modifier">
             </div>
           </div>
           <div class="input-group">
             <span class="input-group-label">$</span>
-            <input class="input-group-field" type="number" name="amount" placeholder="Amount">
+            <input class="input-group-field" type="number" name="chargeAmount" placeholder="Amount">
           </div>
-          <input type="text" name="dx1" placeholder="DX1">
-          <input type="text" name="dx2" placeholder="DX2">
-          <input type="text" name="dx3" placeholder="DX3">
-          <input type="text" name="dx4" placeholder="DX4">
-          <input type="text" name="dx5" placeholder="DX5">
-          <input type="text" name="dx6" placeholder="DX6">
-          <input type="text" name="dx7" placeholder="DX7">
-          <input type="text" name="dx8" placeholder="DX8">
-          <input type="text" name="dx9" placeholder="DX9">
+          <input type="text" name="chargeDX1" placeholder="DX1">
+          <input type="text" name="chargeDX2" placeholder="DX2">
+          <input type="text" name="chargeDX3" placeholder="DX3">
+          <input type="text" name="chargeDX4" placeholder="DX4">
+          <input type="text" name="dx5" placeholder="DX5" disabled>
+          <input type="text" name="dx6" placeholder="DX6" disabled>
+          <input type="text" name="dx7" placeholder="DX7" disabled>
+          <input type="text" name="dx8" placeholder="DX8" disabled>
+          <input type="text" name="dx9" placeholder="DX9" disabled>
         </div>
       </div>
     </div>
