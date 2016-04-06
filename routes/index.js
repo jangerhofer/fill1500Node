@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 // Login
 router.post('/login', function(req, res, next) {
-  if (req.body.username && req.body.username === 'chgUser2016' && req.body.password && req.body.password === 'Rocket!2801') {
+  if (req.body.username && req.body.username === 'CHGUser' && req.body.password && req.body.password === 'Rocket!2801') {
     req.session.authenticated = true;
     res.redirect('/fill');
   } else {
