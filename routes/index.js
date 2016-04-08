@@ -1,35 +1,43 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
 
-var fillPdf = require("fill-pdf");
+var fillPdf = require("fill-pdf")
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', {
     title: '1500 Form Generator'
-  });
-});
+  })
+})
 
 // Login
 router.post('/login', function(req, res, next) {
   if (req.body.username && req.body.username === 'CHGUser' && req.body.password && req.body.password === 'Rocket!2801') {
-    req.session.authenticated = true;
-    res.redirect('/fill');
+    req.session.authenticated = true
+    res.redirect('/fill')
   } else {
     res.render('index', {
       error: "Wrong combination.  Try again!"
     })
   }
-});
+})
 
 router.get('/fill', function(req, res, next) {
   res.render('fillForm', {
     title: '1500 Form Generator'
-  });
-});
+  })
+})
 
 router.post('/genPDF', function(req, res, next) {
   par = req.body
+
+
+  for (var key in par) {
+    if (!par.hasOwnProperty(key)) continue
+    par[key] = par[key].toUpperCase()
+}
+
+
   var formData = {
     accessionNo_26: par.accessionNumber,
     providerNPINo_17b: par.providerNPI,
@@ -74,28 +82,27 @@ router.post('/genPDF', function(req, res, next) {
     chargeDX2_21: par.chargeDX2,
     chargeDX3_21: par.chargeDX3,
     chargeDX4_21: par.chargeDX4
-  };
-
-  console.log(req.body);
+  }
 
   fillPdf.generatePdf(formData, "../../1500template.pdf", function(err, output) {
-    if (!err) {
-      res.type("application/pdf");
-      console.log(par.submitType);
-      if (par.submitType == "dl") {
-        res.setHeader('Content-disposition', 'attachment; filename=' + formData.accessionNo_26 + '.pdf');
-      } else {
-        res.setHeader('Content-disposition', 'inline; filename=' + formData.accessionNo_26 + '.pdf');
-      }
-
-      res.send(output);
+    if (err) {
+      console.log("ERROR at: " + new Date())
     }
-  });
-
+    if (!err) {
+      res.type("application/pdf")
+      if (par.submitType == "dl") {
+        res.setHeader('Content-disposition', 'attachment filename=' + formData.accessionNo_26 + '.pdf')
+      } else {
+        res.setHeader('Content-disposition', 'inline filename=' + formData.accessionNo_26 + '.pdf')
+      }
+      console.log(par.submitType + " at: " + new Date())
+      res.send(output)
+    }
+  })
 })
 
 router.get('/genPDF', function(req, res, next) {
   res.redirect("/")
 })
 
-module.exports = router;
+module.exports = router
