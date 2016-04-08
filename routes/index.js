@@ -81,7 +81,11 @@ router.post('/genPDF', function(req, res, next) {
     chargeDX1_21: par.chargeDX1,
     chargeDX2_21: par.chargeDX2,
     chargeDX3_21: par.chargeDX3,
-    chargeDX4_21: par.chargeDX4
+    chargeDX4_21: par.chargeDX4,
+    serviceNPINo_32a : par.serviceNPINo,
+    billingNPINo_33a : par.billingNPINo,
+
+
   }
 
   fillPdf.generatePdf(formData, "../../1500template.pdf", function(err, output) {

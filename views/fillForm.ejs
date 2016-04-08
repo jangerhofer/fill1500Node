@@ -1,7 +1,7 @@
 <script>
-  function clickClear() {
-    document.getElementById("fillForm").reset();
-  }
+    function clickClear() {
+        document.getElementById("fillForm").reset();
+    }
 </script>
 
 <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -15,191 +15,208 @@
 <script src="js/app.js"></script>
 
 <body>
-  <form id="fillForm" action="genPDF" target="_blank" method="post">
+    <form id="fillForm" action="genPDF" target="_blank" method="post">
 
-    <div class="row">
-      <div class="large-6 columns">
+        <div class="row">
+            <div class="large-6 columns">
 
-        <div class="callout small">
-          <h1>
-            Provider Information
-          </h1>
-          <input type="text" name="accessionNumber" placeholder="Accession Number">
-          <input type="text" name="providerNPI" placeholder="Provider NPI Number">
-          <input type="text" name="providerName" placeholder="Provider Name">
-        </div>
+                <div class="callout small">
+                    <h1>
+                        Provider Information
+                    </h1>
+                    <input type="text" name="accessionNumber" placeholder="Accession Number">
+                    <input type="text" name="providerNPI" placeholder="Provider NPI Number">
+                    <input type="text" name="providerName" placeholder="Provider Name">
+                </div>
 
-        <div class="callout small">
-          <h1>
-            Collection Information
-          </h1>
-          Date Service Began / Collection Date
-          <div class="row">
-            <div class="large-3 columns">
-              <input type="number" name="collectionDateFromMM" placeholder="MM">
-            </div>
-            <div class="large-3 columns">
-              <input type="number" name="collectionDateFromDD" placeholder="DD">
-            </div>
-            <div class="large-3 columns">
-              <input type="number" name="collectionDateFromYY" placeholder="YY">
-            </div>
-          </div>
+                <div class="callout small">
+                    <h1>
+                        Collection Information
+                    </h1>
+                    Date Service Began / Collection Date
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <input type="number" name="collectionDateFromMM" placeholder="MM">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="number" name="collectionDateFromDD" placeholder="DD">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="number" name="collectionDateFromYY" placeholder="YY">
+                        </div>
+                    </div>
 
-          Date Service Ended / Collection Date
-          <div class="row">
-            <div class="large-3 columns">
-              <input type="number" name="collectionDateToMM" placeholder="MM">
-            </div>
-            <div class="large-3 columns">
-              <input type="number" name="collectionDateToDD" placeholder="DD">
-            </div>
-            <div class="large-3 columns">
-              <input type="number" name="collectionDateToYY" placeholder="YY">
-            </div>
-          </div>
+                    Date Service Ended / Collection Date
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <input type="number" name="collectionDateToMM" placeholder="MM">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="number" name="collectionDateToDD" placeholder="DD">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="number" name="collectionDateToYY" placeholder="YY">
+                        </div>
+                    </div>
 
-        <!--  <div class="input-group">
+                    <!--  <div class="input-group">
             <span class="input-group-label">$</span>
             <input class="input-group-field" type="number" name="serviceCharges" placeholder="Services Charges">
           </div>
         -->
 
-        </div>
+                </div>
 
-      </div>
+                <div class="callout small">
+                    <h1>
+                        Claim Information
+                    </h1>
+                    <input type="text" name="billingNPINo" placeholder="Billing NPI Number" value="1982010963">
+                    <input type="text" name="serviceNPINo" placeholder="Service NPI Number" value="1982010963">
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <input type="number" name="claimPhoneAreaCode" maxlength="3" placeholder="XXX" value="603">
+                        </div>
+                        <div class="large-9 columns">
+                            <input type="number" name="claimPhoneNo" maxlength="6" placeholder="XXXXXXX" value="3613219">
+                        </div>
+                    </div>
 
-      <div class="large-6 columns">
+                </div>
 
-        <div class="callout small">
-          <h1>
-            Patient Information
-          </h1>
-          <input type="text" name="patientLastName" placeholder="Patient Last Name">
-          <input type="text" name="patientMiddleInitial" placeholder="Patient Middle Initial">
-          <input type="text" name="patientFirstName" placeholder="Patient First Name">
-          Patient DOB
-          <div class="row">
-            <div class="large-3 columns">
-              <input type="number" name="patientDOBMM" placeholder="MM">
             </div>
-            <div class="large-3 columns">
-              <input type="number" name="patientDOBDD" placeholder="DD">
-            </div>
-            <div class="large-3 columns">
-              <input type="number" name="patientDOBYY" placeholder="YY">
-            </div>
-          </div>
 
-          Patient Gender
-          <input type="radio" name="patientGender" value="1" checked>
-          Male
-          <input type="radio" name="patientGender" value="0">
-          Female
-          <br>
-
-          Patient Phone Number (Area Code, Suffix)
-          <div class="row">
             <div class="large-6 columns">
-              <input type="number" name="patientAreaCode" maxlength="3" placeholder="XXX-">
+
+                <div class="callout small">
+                    <h1>
+                        Patient Information
+                    </h1>
+                    <input type="text" name="patientLastName" placeholder="Patient Last Name">
+                    <input type="text" name="patientMiddleInitial" placeholder="Patient Middle Initial">
+                    <input type="text" name="patientFirstName" placeholder="Patient First Name">
+                    Patient DOB
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <input type="number" name="patientDOBMM" placeholder="MM">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="number" name="patientDOBDD" placeholder="DD">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="number" name="patientDOBYY" placeholder="YY">
+                        </div>
+                    </div>
+
+                    Patient Gender
+                    <input type="radio" name="patientGender" value="1" checked>
+                    Male
+                    <input type="radio" name="patientGender" value="0">
+                    Female
+                    <br>
+
+                    Patient Phone Number (Area Code, Suffix)
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <input type="number" name="patientAreaCode" maxlength="3" placeholder="XXX">
+                        </div>
+                        <div class="large-6 columns">
+                            <input type="number" name="patientPhoneNo" maxlength="6" placeholder="XXXXXXX">
+                        </div>
+                    </div>
+                    <input type="text" name="patientStreetAddress" placeholder="Patient Street Address">
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <input type="text" name="patientCity" placeholder="City">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="text" name="patientState" placeholder="State">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="text" name="patientZip" placeholder="Zip Code">
+                        </div>
+                    </div>
+                    <input type="text" name="insuredEmployerName" placeholder="Insured Employer Name (Optional)">
+                </div>
+
             </div>
-            <div class="large-6 columns">
-              <input type="number" name="patientPhoneNo" maxlength="6" placeholder="XXX-XXXX">
-            </div>
-          </div>
-          <input type="text" name="patientStreetAddress" placeholder="Patient Street Address">
-          <div class="row">
-            <div class="large-3 columns">
-              <input type="text" name="patientCity" placeholder="City">
-            </div>
-            <div class="large-3 columns">
-              <input type="text" name="patientState" placeholder="State">
-            </div>
-            <div class="large-3 columns">
-              <input type="text" name="patientZip" placeholder="Zip Code">
-            </div>
-          </div>
-          <input type="text" name="insuredEmployerName" placeholder="Insured Employer Name (Optional)">
         </div>
+        <div class="row">
 
-      </div>
-    </div>
-    <div class="row">
+            <div class="large-12 columns">
+                <div class="callout small">
+                    <h1>Insurance Information</h1>
+                    <input type="text" name="insuranceCarrier1" placeholder="Insurance Carrier #1">
+                    <input type="text" name="insuranceCarrier1Address" placeholder="Insurance Carrier #1 Claim Address">
+                    <input type="text" name="subscriber1Name" placeholder="Subscriber Name 1">
+                    Subscriber #1 DOB -- (MM, DD, YY)
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <input type="number" name="subscriber1DOBMM" placeholder="MM">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="number" name="subscriber1DOBDD" placeholder="DD">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="number" name="subscriber1DOBYY" placeholder="YY">
+                        </div>
+                    </div>
+                    <input type="text" name="subscriber1ID" placeholder="Subscriber ID 1">
+                    <input type="text" name="groupNumber1" placeholder="Group Number 1">
 
-      <div class="large-12 columns">
-        <div class="callout small">
-          <h1>Insurance Information</h1>
-          <input type="text" name="insuranceCarrier1" placeholder="Insurance Carrier #1">
-          <input type="text" name="insuranceCarrier1Address" placeholder="Insurance Carrier #1 Claim Address">
-          <input type="text" name="subscriber1Name" placeholder="Subscriber Name 1">
-          Subscriber #1 DOB -- (MM, DD, YY)
-          <div class="row">
-            <div class="large-3 columns">
-              <input type="number" name="subscriber1DOBMM" placeholder="MM">
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <input type="text" name="chargeCode" placeholder="Charge Code (CPT)">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="text" name="chargeUnits" placeholder="Units">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="text" name="chargeModifier" placeholder="Modifier">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-label">$</span>
+                        <input class="input-group-field" type="number" name="chargeAmount" placeholder="Amount">
+                    </div>
+                    <input type="text" name="chargeDX1" placeholder="DX1">
+                    <input type="text" name="chargeDX2" placeholder="DX2">
+                    <input type="text" name="chargeDX3" placeholder="DX3">
+                    <input type="text" name="chargeDX4" placeholder="DX4">
+                    <input type="text" name="dx5" placeholder="DX5" disabled>
+                    <input type="text" name="dx6" placeholder="DX6" disabled>
+                    <input type="text" name="dx7" placeholder="DX7" disabled>
+                    <input type="text" name="dx8" placeholder="DX8" disabled>
+                    <input type="text" name="dx9" placeholder="DX9" disabled>
+                </div>
             </div>
-            <div class="large-3 columns">
-              <input type="number" name="subscriber1DOBDD" placeholder="DD">
-            </div>
-            <div class="large-3 columns">
-              <input type="number" name="subscriber1DOBYY" placeholder="YY">
-            </div>
-          </div>
-          <input type="text" name="subscriber1ID" placeholder="Subscriber ID 1">
-          <input type="text" name="groupNumber1" placeholder="Group Number 1">
-
-          <div class="row">
-            <div class="large-3 columns">
-              <input type="text" name="chargeCode" placeholder="Charge Code (CPT)">
-            </div>
-            <div class="large-3 columns">
-              <input type="text" name="chargeUnits" placeholder="Units">
-            </div>
-            <div class="large-3 columns">
-              <input type="text" name="chargeModifier" placeholder="Modifier">
-            </div>
-          </div>
-          <div class="input-group">
-            <span class="input-group-label">$</span>
-            <input class="input-group-field" type="number" name="chargeAmount" placeholder="Amount">
-          </div>
-          <input type="text" name="chargeDX1" placeholder="DX1">
-          <input type="text" name="chargeDX2" placeholder="DX2">
-          <input type="text" name="chargeDX3" placeholder="DX3">
-          <input type="text" name="chargeDX4" placeholder="DX4">
-          <input type="text" name="dx5" placeholder="DX5" disabled>
-          <input type="text" name="dx6" placeholder="DX6" disabled>
-          <input type="text" name="dx7" placeholder="DX7" disabled>
-          <input type="text" name="dx8" placeholder="DX8" disabled>
-          <input type="text" name="dx9" placeholder="DX9" disabled>
         </div>
-      </div>
-    </div>
-    <div id="floatingBar">
-      <center>
-        <div id="formControls" class="large-6 large-centered columns">
+        <div id="floatingBar">
+            <center>
+                <div id="formControls" class="large-6 large-centered columns">
 
-          <button class="button" id="submitDownload">Download Form</button>
-          <button class="success button" id="submitView">View in Browser</button>
-          <button onclick="clickClear(); return false" class="alert button">Clear Form</button>
+                    <button class="button" id="submitDownload">Download Form</button>
+                    <button class="success button" id="submitView">View in Browser</button>
+                    <button onclick="clickClear(); return false" class="alert button">Clear Form</button>
 
+                </div>
+            </center>
         </div>
-      </center>
-    </div>
-  </form>
+    </form>
 
-  <script>
-    $(function() {
-      $("#submitDownload").click(function() {
-        $("[name=\"submitType\"]").remove()
-        var input = $("<input>").attr("type", "hidden").attr("name", "submitType").val("dl");
-        $('#fillForm').append($(input));
-      })
+    <script>
+        $(function() {
+            $("#submitDownload").click(function() {
+                $("[name=\"submitType\"]").remove()
+                var input = $("<input>").attr("type", "hidden").attr("name", "submitType").val("dl");
+                $('#fillForm').append($(input));
+            })
 
-      $("#submitView").click(function() {
-        $("[name=\"submitType\"]").remove()
-        var input = $("<input>").attr("type", "hidden").attr("name", "submitType").val("view");
-        $('#fillForm').append($(input));
-      })
-    })
-  </script>
+            $("#submitView").click(function() {
+                $("[name=\"submitType\"]").remove()
+                var input = $("<input>").attr("type", "hidden").attr("name", "submitType").val("view");
+                $('#fillForm').append($(input));
+            })
+        })
+    </script>
 </body>
