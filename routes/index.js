@@ -47,6 +47,7 @@ router.post('/genPDF', function(req, res, next) {
     patientDOBDD_3: par.patientDOBDD,
     patientDOBYY_3: par.patientDOBYY,
     patientSex_3: par.patientGender,
+    patientRelationshipToInsured_6 : par.relationshipToInsured,
     patientAreaCode_5: par.patientAreaCode,
     insuredAreaCode_7: par.patientAreaCode,
     patientPhoneNo_5: par.patientPhoneNo,
@@ -72,6 +73,7 @@ router.post('/genPDF', function(req, res, next) {
     subscriber1DOBMM_11: par.subscriber1DOBMM,
     subscriber1DOBDD_11: par.subscriber1DOBDD,
     subscriber1DOBYY_11: par.subscriber1DOBYY,
+    subscriber1Sex_11a : par.subscriber1Gender,
     subscriber1ID_1: par.subscriber1ID,
     subscriber1GroupNo_11: par.groupNumber1,
     chargeCode_24: par.chargeCode,
@@ -86,8 +88,6 @@ router.post('/genPDF', function(req, res, next) {
     billingNPINo_33a : par.billingNPINo,
     billingPhoneAreaCode_33 : par.billingPhoneAreaCode,
     billingPhoneNo_33 : par.billingPhoneNo
-
-
   }
 
   fillPdf.generatePdf(formData, "../../1500template.pdf", function(err, output) {

@@ -108,11 +108,22 @@
                         </div>
                     </div>
 
-                    Patient Gender
-                    <input type="radio" name="patientGender" value="1" checked>
+                    Patient Gender:
+                    <input type="radio" name="patientGender" value="0" checked>
                     Male
-                    <input type="radio" name="patientGender" value="0">
+                    <input type="radio" name="patientGender" value="1">
                     Female
+                    <br>
+
+                    Patient Relationship to Insured:
+                    <input type="radio" name="relationshipToInsured" value="0" checked>
+                    Self
+                    <input type="radio" name="relationshipToInsured" value="1">
+                    Spouse
+                    <input type="radio" name="relationshipToInsured" value="2">
+                    Child
+                    <input type="radio" name="relationshipToInsured" value="3">
+                    Other
                     <br>
 
                     Patient Phone Number (Area Code, Suffix)
@@ -161,6 +172,14 @@
                             <input type="number" name="subscriber1DOBYY" placeholder="YY">
                         </div>
                     </div>
+
+                    Insured Gender:
+                    <input type="radio" name="subscriber1Gender" value="0" checked>
+                    Male
+                    <input type="radio" name="subscriber1Gender" value="1">
+                    Female
+                    <br>
+
                     <input type="text" name="subscriber1ID" placeholder="Subscriber ID 1">
                     <input type="text" name="groupNumber1" placeholder="Group Number 1">
 
