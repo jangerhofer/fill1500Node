@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
+var moment = require('moment')
 var fillPdf = require("fill-pdf")
 
 /* GET home page. */
@@ -24,7 +25,8 @@ router.post('/login', function(req, res, next) {
 
 router.get('/fill', function(req, res, next) {
   res.render('fillForm', {
-    title: '1500 Form Generator'
+    title: '1500 Form Generator',
+    moment : moment
   })
 })
 
@@ -33,7 +35,6 @@ router.post('/genPDF', function(req, res, next) {
 
 
   for (var key in par) {
-    if (!par.hasOwnProperty(key)) continue
     par[key] = par[key].toUpperCase()
 }
 
@@ -60,6 +61,9 @@ router.post('/genPDF', function(req, res, next) {
     insuredState_7: par.patientState,
     patientZip_5: par.patientZip,
     insuredZip_7: par.patientZip,
+    patientSignature_12 : par.patientSignature,
+    patientSignatureDate_12 : par.patientSignatureDate,
+    insuredSignature_13 : par.insuredSignature,
     collectionDateFromMM_24: par.collectionDateFromMM,
     collectionDateFromDD_24: par.collectionDateFromDD,
     collectionDateFromYY_24: par.collectionDateFromYY,
@@ -70,6 +74,9 @@ router.post('/genPDF', function(req, res, next) {
     insuranceCarrier1: par.insuranceCarrier1,
     insuranceCarrier1Address: par.insuranceCarrier1Address,
     subscriber1Name_4: par.subscriber1Name,
+    conditionRelatedToEmployment_10a : par.conditionRelatedToEmployment,
+    conditionRelatedToAuto_10b : par.conditionRelatedToAuto,
+    conditionRelatedToOther_10c: par.conditionRelatedToOther,
     subscriber1DOBMM_11: par.subscriber1DOBMM,
     subscriber1DOBDD_11: par.subscriber1DOBDD,
     subscriber1DOBYY_11: par.subscriber1DOBYY,
@@ -80,6 +87,7 @@ router.post('/genPDF', function(req, res, next) {
     chargeUnits_24: par.chargeUnits,
     chargeModifier_24: par.chargeModifier,
     chargeAmount_24: par.chargeAmount,
+    federalTaxIDNo_25 : par.federalTaxIDNo,
     chargeDX1_21: par.chargeDX1,
     chargeDX2_21: par.chargeDX2,
     chargeDX3_21: par.chargeDX3,

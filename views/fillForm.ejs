@@ -72,7 +72,9 @@
                         Claim Information
                     </h1>
                     <input type="text" name="billingNPINo" placeholder="Billing NPI Number" value="1982010963">
+
                     <input type="text" name="serviceNPINo" placeholder="Service NPI Number" value="1982010963">
+
                     <div class="row">
                         <div class="large-3 columns">
                             <input type="number" name="billingPhoneAreaCode" maxlength="3" placeholder="XXX" value="603">
@@ -81,9 +83,9 @@
                             <input type="number" name="billingPhoneNo" maxlength="6" placeholder="XXXXXXX" value="3613219">
                         </div>
                     </div>
+                      <input type="number" name="federalTaxIDNo" maxlength="6" placeholder="Federal Tax ID Number" value="471300031">
 
                 </div>
-
             </div>
 
             <div class="large-6 columns">
@@ -124,6 +126,28 @@
                     Child
                     <input type="radio" name="relationshipToInsured" value="3">
                     Other
+
+                    <br>
+
+                  <b>  Patient Condition Related To:</b>
+                    <br>
+                    Employment:
+                    <input type="radio" name="conditionRelatedToEmployment" value="0">
+                    Yes
+                    <input type="radio" name="conditionRelatedToEmployment" value="1" checked>
+                    No
+                    <br>
+                    Auto Accident:
+                    <input type="radio" name="conditionRelatedToAuto" value="0">
+                    Yes
+                    <input type="radio" name="conditionRelatedToAuto" value="1" checked>
+                    No
+                    <br>
+                    Other Accident:
+                    <input type="radio" name="conditionRelatedToOther" value="0">
+                    Yes
+                    <input type="radio" name="conditionRelatedToOther" value="1" checked>
+                    No
                     <br>
 
                     Patient Phone Number (Area Code, Suffix)
@@ -148,6 +172,11 @@
                         </div>
                     </div>
                     <input type="text" name="insuredEmployerName" placeholder="Insured Employer Name (Optional)">
+
+                    <input type="text" name="patientSignature" placeholder="Patient Signature" value="Signature on File">
+
+                    <input type="text" name="patientSignatureDate" placeholder="Patient Signature Date" value="<%= moment().format('MM/DD/YYYY') %>">
+
                 </div>
 
             </div>
@@ -173,12 +202,19 @@
                         </div>
                     </div>
 
-                    Insured Gender:
-                    <input type="radio" name="subscriber1Gender" value="0" checked>
-                    Male
-                    <input type="radio" name="subscriber1Gender" value="1">
-                    Female
-                    <br>
+                    <div class="row">
+                        <div class="large-3 columns">
+                            Insured Gender:
+                            <input type="radio" name="subscriber1Gender" value="0" checked>
+                            Male
+                            <input type="radio" name="subscriber1Gender" value="1">
+                            Female
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="text" name="insuredSignature" placeholder="Insured Signature" value="Signature on File">
+                        </div>
+                        <div class="large-3 columns"></div>
+                    </div>
 
                     <input type="text" name="subscriber1ID" placeholder="Subscriber ID 1">
                     <input type="text" name="groupNumber1" placeholder="Group Number 1">
