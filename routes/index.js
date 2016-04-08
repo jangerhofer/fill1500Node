@@ -84,6 +84,8 @@ router.post('/genPDF', function(req, res, next) {
     chargeDX4_21: par.chargeDX4,
     serviceNPINo_32a : par.serviceNPINo,
     billingNPINo_33a : par.billingNPINo,
+    billingPhoneAreaCode_33 : par.billingPhoneAreaCode,
+    billingPhoneNo_33 : par.billingPhoneNo
 
 
   }
