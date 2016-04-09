@@ -92,12 +92,17 @@ router.post('/genPDF', function(req, res, next) {
     chargeDX2_21: par.chargeDX2,
     chargeDX3_21: par.chargeDX3,
     chargeDX4_21: par.chargeDX4,
+    supplierSignature_31 : par.supplierSignature,
+    supplierCredential_31 : par.supplierCredential,
+    supplierSignatureDate_31 : par.supplierSignatureDate,
+    serviceFacilityAddress_32 : par.serviceFacilityAddress,
+    billingProviderAddress_33 : par.billingProviderAddress,
     serviceNPINo_32a : par.serviceNPINo,
     billingNPINo_33a : par.billingNPINo,
     billingPhoneAreaCode_33 : par.billingPhoneAreaCode,
     billingPhoneNo_33 : par.billingPhoneNo
   }
-
+  console.log(par.serviceFacilityAddress);
   fillPdf.generatePdf(formData, "../../1500template.pdf", function(err, output) {
     if (err) {
       console.log("ERROR at: " + new Date())
