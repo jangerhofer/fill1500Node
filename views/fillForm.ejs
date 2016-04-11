@@ -31,44 +31,6 @@
 
                 <div class="callout small">
                     <h1>
-                        Collection Information
-                    </h1>
-                    Date Service Began / Collection Date
-                    <div class="row">
-                        <div class="large-3 columns">
-                            <input type="number" name="collectionDateFromMM" placeholder="MM">
-                        </div>
-                        <div class="large-3 columns">
-                            <input type="number" name="collectionDateFromDD" placeholder="DD">
-                        </div>
-                        <div class="large-3 columns">
-                            <input type="number" name="collectionDateFromYY" placeholder="YY">
-                        </div>
-                    </div>
-
-                    Date Service Ended / Collection Date
-                    <div class="row">
-                        <div class="large-3 columns">
-                            <input type="number" name="collectionDateToMM" placeholder="MM">
-                        </div>
-                        <div class="large-3 columns">
-                            <input type="number" name="collectionDateToDD" placeholder="DD">
-                        </div>
-                        <div class="large-3 columns">
-                            <input type="number" name="collectionDateToYY" placeholder="YY">
-                        </div>
-                    </div>
-
-                    <!--  <div class="input-group">
-            <span class="input-group-label">$</span>
-            <input class="input-group-field" type="number" name="serviceCharges" placeholder="Services Charges">
-          </div>
-        -->
-
-                </div>
-
-                <div class="callout small">
-                    <h1>
                         Claim Information
                     </h1>
                     <input type="text" name="billingNPINo" placeholder="Billing NPI Number" value="1982010963">
@@ -85,26 +47,22 @@
                     </div>
                     <input type="number" name="federalTaxIDNo" maxlength="6" placeholder="Federal Tax ID Number" value="471300031">
 
-
                     <div class="row">
-                      <div class="large-6 columns">
-                        Use EIN:
-                        <input type="radio" name="useEIN" value="0" >
-                        No
-                        <input type="radio" name="useEIN" value="1" checked>
-                        Yes
-                      </div>
                         <div class="large-6 columns">
-                          Accept Assigment:
-                          <input type="radio" name="acceptAssignment" value="1" >
-                          No
-                          <input type="radio" name="acceptAssignment" value="0" checked>
-                          Yes
+                            Use EIN:
+                            <input type="radio" name="useEIN" value="0">
+                            No
+                            <input type="radio" name="useEIN" value="1" checked>
+                            Yes
+                        </div>
+                        <div class="large-6 columns">
+                            Accept Assigment:
+                            <input type="radio" name="acceptAssignment" value="1">
+                            No
+                            <input type="radio" name="acceptAssignment" value="0" checked>
+                            Yes
                         </div>
                     </div>
-
-
-
 
                     <textarea rows="3" name="serviceFacilityAddress" placeholder="Service Facility Address">AERODIAGNOSTICS&#13;1 CRANBERRY HILL SUITE 303A&#13;LEXINGTON, MA 02421</textarea>
 
@@ -156,33 +114,40 @@
                     <input type="radio" name="relationshipToInsured" value="3">
                     Other
 
-                    <b>
-                        Patient Condition Related To:</b>
                     <br>
-                    Employment:
-                    <input type="radio" name="conditionRelatedToEmployment" value="0">
-                    Yes
-                    <input type="radio" name="conditionRelatedToEmployment" value="1" checked>
-                    No
+                    <b>Patient Condition Related To:</b>
                     <br>
-                    Auto Accident:
-                    <input type="radio" name="conditionRelatedToAuto" value="0">
-                    Yes
-                    <input type="radio" name="conditionRelatedToAuto" value="1" checked>
-                    No
-                    <br>
-                    Other Accident:
-                    <input type="radio" name="conditionRelatedToOther" value="0">
-                    Yes
-                    <input type="radio" name="conditionRelatedToOther" value="1" checked>
-                    No
-                    <br>
-
-                    Month of Illness
                     <div class="row">
                         <div class="large-3 columns">
+                            Employment:
+                            <br>
+                            <input type="radio" name="conditionRelatedToEmployment" value="0">
+                            Yes
+                            <input type="radio" name="conditionRelatedToEmployment" value="1" checked>
+                            No
+                        </div>
+
+                        <div class="large-3 columns">
+                            Auto Accident:
+                            <input type="radio" name="conditionRelatedToAuto" value="0">
+                            Yes
+                            <input type="radio" name="conditionRelatedToAuto" value="1" checked>
+                            No
+                        </div>
+
+                        <div class="large-3 columns">
+                            Other Accident:
+                            <input type="radio" name="conditionRelatedToOther" value="0">
+                            Yes
+                            <input type="radio" name="conditionRelatedToOther" value="1" checked>
+                            No
+                        </div>
+
+                        <div class="large-3 columns">
+                            Month of Illness
                             <input type="text" name="dateIllnessMM" placeholder="MM" value="N/A">
                         </div>
+
                     </div>
 
                     Patient Phone Number (Area Code, Suffix)
@@ -211,6 +176,44 @@
                     <input type="text" name="patientSignature" placeholder="Patient Signature" value="Signature on File">
 
                     <input type="text" name="patientSignatureDate" placeholder="Patient Signature Date" value="<%= moment().format('MM/DD/YYYY') %>">
+
+                </div>
+
+                <div class="callout small">
+                    <h1>
+                        Collection Information
+                    </h1>
+                    Date Service Began / Collection Date
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <input type="number" name="collectionDateFromMM" placeholder="MM">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="number" name="collectionDateFromDD" placeholder="DD">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="number" name="collectionDateFromYY" placeholder="YY">
+                        </div>
+                    </div>
+
+                    Date Service Ended / Collection Date
+                    <div class="row">
+                        <div class="large-3 columns">
+                            <input type="number" name="collectionDateToMM" placeholder="MM">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="number" name="collectionDateToDD" placeholder="DD">
+                        </div>
+                        <div class="large-3 columns">
+                            <input type="number" name="collectionDateToYY" placeholder="YY">
+                        </div>
+                    </div>
+
+                    <!--  <div class="input-group">
+            <span class="input-group-label">$</span>
+            <input class="input-group-field" type="number" name="serviceCharges" placeholder="Services Charges">
+          </div>
+        -->
 
                 </div>
 
@@ -255,9 +258,9 @@
                     <input type="text" name="groupNumber1" placeholder="Group Number 1">
 
                     <div class="row">
-                      <div class="large-3 columns">
-                          <input type="text" name="icdIndicator" placeholder="ICD Indicator" value="0">
-                      </div>
+                        <div class="large-3 columns">
+                            <input type="text" name="icdIndicator" placeholder="ICD Indicator" value="0">
+                        </div>
                         <div class="large-3 columns">
                             <input type="text" name="chargeCode" placeholder="Charge Code (CPT)">
                         </div>
