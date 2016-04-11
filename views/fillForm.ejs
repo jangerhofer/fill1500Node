@@ -177,43 +177,13 @@
 
                     <input type="text" name="patientSignatureDate" placeholder="Patient Signature Date" value="<%= moment().format('MM/DD/YYYY') %>">
 
-                </div>
+                    <input type="text" name="chargeDX1" placeholder="DX1">
+                   <input type="text" name="chargeDX2" placeholder="DX2">
+                   <input type="text" name="chargeDX3" placeholder="DX3">
+                   <input type="text" name="chargeDX4" placeholder="DX4">
 
-                <div class="callout small">
-                    <h1>
-                        Collection Information
-                    </h1>
-                    Date Service Began / Collection Date
-                    <div class="row">
-                        <div class="large-3 columns">
-                            <input type="number" name="collectionDateFromMM" placeholder="MM">
-                        </div>
-                        <div class="large-3 columns">
-                            <input type="number" name="collectionDateFromDD" placeholder="DD">
-                        </div>
-                        <div class="large-3 columns">
-                            <input type="number" name="collectionDateFromYY" placeholder="YY">
-                        </div>
-                    </div>
+                   <input type="text" name="icdIndicator" placeholder="ICD Indicator" value="0">
 
-                    Date Service Ended / Collection Date
-                    <div class="row">
-                        <div class="large-3 columns">
-                            <input type="number" name="collectionDateToMM" placeholder="MM">
-                        </div>
-                        <div class="large-3 columns">
-                            <input type="number" name="collectionDateToDD" placeholder="DD">
-                        </div>
-                        <div class="large-3 columns">
-                            <input type="number" name="collectionDateToYY" placeholder="YY">
-                        </div>
-                    </div>
-
-                    <!--  <div class="input-group">
-            <span class="input-group-label">$</span>
-            <input class="input-group-field" type="number" name="serviceCharges" placeholder="Services Charges">
-          </div>
-        -->
 
                 </div>
 
@@ -257,33 +227,68 @@
                     <input type="text" name="subscriber1ID" placeholder="Subscriber ID 1">
                     <input type="text" name="groupNumber1" placeholder="Group Number 1">
 
-                    <div class="row">
-                        <div class="large-3 columns">
-                            <input type="text" name="icdIndicator" placeholder="ICD Indicator" value="0">
+                    <% for (i=1; i <= 6; i++) { %>
+                        <div class="callout small">
+                            <h6>Charge #<%= i %></h6>
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    Date Service Began
+                                    <div class="row">
+                                        <div class="large-4 columns">
+                                            <input type="number" name="collectionDateFromMM<%= i %>" placeholder="MM">
+                                        </div>
+                                        <div class="large-4 columns">
+                                            <input type="number" name="collectionDateFromDD<%= i %>" placeholder="DD">
+                                        </div>
+                                        <div class="large-4 columns">
+                                            <input type="number" name="collectionDateFromYY<%= i %>" placeholder="YY">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-6 columns">
+                                    Date Service Ended
+                                    <div class="row">
+                                        <div class="large-4 columns">
+                                            <input type="number" name="collectionDateToMM<%= i %>" placeholder="MM">
+                                        </div>
+                                        <div class="large-4 columns">
+                                            <input type="number" name="collectionDateToDD<%= i %>" placeholder="DD">
+                                        </div>
+                                        <div class="large-4 columns">
+                                            <input type="number" name="collectionDateToYY<%= i %>" placeholder="YY">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-3 columns">
+                                    <input type="text" name="servicePlace<%= i %>" placeholder="Place of Service" value="81">
+                                </div>
+                                <div class="large-3 columns">
+                                    <input type="text" name="cptCode<%= i %>" placeholder="CPT Code">
+                                </div>
+                                <div class="large-3 columns">
+                                    <input type="text" name="modifier<%= i %>" placeholder="Modifier">
+                                </div>
+                                <div class="large-3 columns">
+                                    <input type="text" type="number" name="diagnosis<%= i %>" placeholder="Diagnosis Pointer">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="large-4 columns">
+                                    <input type="text" name="charges<%= i %>" placeholder="$ Charge Amount">
+                                </div>
+                                <div class="large-4 columns">
+                                    <input type="text" name="dayUnits<%= i %>" placeholder="Days/Units">
+                                </div>
+                                <div class="large-4 columns">
+                                    <input type="text" name="providerID<%= i %>" value="1982010963" placeholder="Provider ID">
+                                </div>
+                            </div>
+                            <!-- End callout -->
                         </div>
-                        <div class="large-3 columns">
-                            <input type="text" name="chargeCode" placeholder="Charge Code (CPT)">
-                        </div>
-                        <div class="large-3 columns">
-                            <input type="text" name="chargeUnits" placeholder="Units">
-                        </div>
-                        <div class="large-3 columns">
-                            <input type="text" name="chargeModifier" placeholder="Modifier">
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-label">$</span>
-                        <input class="input-group-field" type="number" name="chargeAmount" placeholder="Amount">
-                    </div>
-                    <input type="text" name="chargeDX1" placeholder="DX1">
-                    <input type="text" name="chargeDX2" placeholder="DX2">
-                    <input type="text" name="chargeDX3" placeholder="DX3">
-                    <input type="text" name="chargeDX4" placeholder="DX4">
-                    <input type="text" name="dx5" placeholder="DX5" disabled>
-                    <input type="text" name="dx6" placeholder="DX6" disabled>
-                    <input type="text" name="dx7" placeholder="DX7" disabled>
-                    <input type="text" name="dx8" placeholder="DX8" disabled>
-                    <input type="text" name="dx9" placeholder="DX9" disabled>
+                    <% } %>
+
                 </div>
             </div>
         </div>
