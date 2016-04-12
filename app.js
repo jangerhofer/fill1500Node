@@ -49,8 +49,7 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(checkAuth)
 app.use(function(req, res, next) {
-    console.log("Request at: " + new Date());
-    console.log(req.connection.remoteAddress);
+    console.log("Request at: " + new Date() + " from " + req.connection.remoteAddress);
     next()
 })
 app.use(cookieParser())

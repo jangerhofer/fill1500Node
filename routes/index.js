@@ -197,7 +197,6 @@ router.post('/genPDF', function(req, res, next) {
             console.log("ERROR at: " + new Date())
         }
         if (!err) {
-          console.log(par.submitType);
             res.type("application/pdf")
             if (par.submitType == "DL") {
               res.setHeader('Content-disposition', 'attachment; filename=' + par.accessionNumber + '_1500.pdf')
