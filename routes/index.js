@@ -45,7 +45,7 @@ router.post('/genPDF', function(req, res, next) {
             par["providerID" + i] = ""
             par["servicePlace" + i] = ""
         } else {
-          sumCharges += parseFloat(par["charges" + i])
+            sumCharges += parseFloat(par["charges" + i])
         }
     }
 
@@ -199,9 +199,11 @@ router.post('/genPDF', function(req, res, next) {
         if (!err) {
             res.type("application/pdf")
             if (par.submitType == "dl") {
-                res.setHeader('Content-disposition', 'attachment filename=' + formData.accessionNo_26 + '.pdf')
+                res.setHeader('Content-disposition', 'attachment filename=' + formData.accessionNumber + '.pdf')
+            } else if (par.submitType == "preview") {
+                res.setHeader('Content-disposition', 'attachment filename=' + formData.accessionNumber + '.pdf')
             } else {
-                res.setHeader('Content-disposition', 'inline filename=' + formData.accessionNo_26 + '.pdf')
+                res.setHeader('Content-disposition', 'inline filename=' + formData.accessionNumber + '.pdf')
             }
             console.log(par.submitType + " at: " + new Date())
             res.send(output)

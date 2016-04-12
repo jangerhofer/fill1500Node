@@ -15,43 +15,43 @@ app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
 app.set('forceSSLOptions', {
-  enable301Redirects: true,
-  trustXFPHeader: false,
-  httpsPort: 443,
-  sslRequiredMessage: 'SSL Required.'
+    enable301Redirects: true,
+    trustXFPHeader: false,
+    httpsPort: 443,
+    sslRequiredMessage: 'SSL Required.'
 })
 
 function checkAuth(req, res, next) {
-  console.log('checkAuth ' + req.url)
+    console.log('checkAuth ' + req.url)
 
-  // don't serve /secure to those not logged in
-  // you should add to this list, for each and every secure url
-  if (req.url === '/fill' && (!req.session || !req.session.authenticated)) {
-    res.render('index', {
-      error: "Please login first."
-    })
-    return
-  }
-  if (req.url === '/' && req.session.authenticated) {
-    res.redirect('/fill')
-    return
-  }
-  next()
+    // don't serve /secure to those not logged in
+    // you should add to this list, for each and every secure url
+    if (req.url === '/fill' && (!req.session || !req.session.authenticated)) {
+        res.render('index', {
+            error: "Please login first."
+        })
+        return
+    }
+    if (req.url === '/' && req.session.authenticated) {
+        res.redirect('/fill')
+        return
+    }
+    next()
 }
 
 app.use(logger('dev'))
 app.use(session({
-  secret: 'G4MnTIgi0ocNqHqpPCUhvttR9Q/6GZtWWh92tR2keiupAzEMpX6f24s1LfZw3s4408QiR8aCWTPyYHT9'
+    secret: 'G4MnTIgi0ocNqHqpPCUhvttR9Q/6GZtWWh92tR2keiupAzEMpX6f24s1LfZw3s4408QiR8aCWTPyYHT9'
 }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
-  extended: false
+    extended: false
 }))
 app.use(checkAuth)
-app.use(function (req, res, next) {
-  console.log("Request at: " + new Date());
-  console.log(req.connection.remoteAddress);
-  next()
+app.use(function(req, res, next) {
+    console.log("Request at: " + new Date());
+    console.log(req.connection.remoteAddress);
+    next()
 })
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
