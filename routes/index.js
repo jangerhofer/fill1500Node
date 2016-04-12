@@ -200,11 +200,11 @@ router.post('/genPDF', function(req, res, next) {
           console.log(par.submitType);
             res.type("application/pdf")
             if (par.submitType == "DL") {
-              res.setHeader('Content-disposition', 'attachment; filename=' + par.accessionNumber + '.pdf')
+              res.setHeader('Content-disposition', 'attachment; filename=' + par.accessionNumber + '_1500.pdf')
             } else if (par.submitType == "PREVIEW") {
-                res.setHeader('Content-disposition', 'inline; filename=' + par.accessionNumber + '.pdf')
+                res.setHeader('Content-disposition', 'inline; filename=' + par.accessionNumber + '_1500.pdf')
             } else {
-                res.setHeader('Content-disposition', 'inline; filename=' + par.accessionNumber + '.pdf')
+                res.setHeader('Content-disposition', 'inline; filename=' + par.accessionNumber + '_1500.pdf')
             }
             console.log(par.submitType + " at: " + new Date())
             res.send(output)
