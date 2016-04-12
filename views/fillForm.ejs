@@ -78,12 +78,20 @@
             <div class="large-6 columns">
 
                 <div class="callout small">
-                    <h1>
-                        Patient Information
-                    </h1>
-                    <input type="text" name="patientLastName" placeholder="Patient Last Name">
-                    <input type="text" name="patientMiddleInitial" placeholder="Patient Middle Initial">
-                    <input type="text" name="patientFirstName" placeholder="Patient First Name">
+                    <h1>Patient Information</h1>
+
+                    <div class="row">
+                        <div class="large-5 columns">
+                            <input type="text" name="patientLastName" placeholder="Patient Last Name">
+                        </div>
+                        <div class="large-2 columns">
+                            <input type="text" name="patientMiddleInitial" placeholder="MI">
+                        </div>
+                        <div class="large-5 columns">
+                            <input type="text" name="patientFirstName" placeholder="Patient First Name">
+                        </div>
+                    </div>
+
                     Patient DOB
                     <div class="row">
                         <div class="large-3 columns">
@@ -178,12 +186,11 @@
                     <input type="text" name="patientSignatureDate" placeholder="Patient Signature Date" value="<%= moment().format('MM/DD/YYYY') %>">
 
                     <input type="text" name="chargeDX1" placeholder="DX1">
-                   <input type="text" name="chargeDX2" placeholder="DX2">
-                   <input type="text" name="chargeDX3" placeholder="DX3">
-                   <input type="text" name="chargeDX4" placeholder="DX4">
+                    <input type="text" name="chargeDX2" placeholder="DX2">
+                    <input type="text" name="chargeDX3" placeholder="DX3">
+                    <input type="text" name="chargeDX4" placeholder="DX4">
 
-                   <input type="text" name="icdIndicator" placeholder="ICD Indicator" value="0">
-
+                    <input type="text" name="icdIndicator" placeholder="ICD Indicator" value="0">
 
                 </div>
 
@@ -196,7 +203,18 @@
                     <h1>Insurance Information</h1>
                     <input type="text" name="insuranceCarrier1" placeholder="Insurance Carrier #1">
                     <input type="text" name="insuranceCarrier1Address" placeholder="Insurance Carrier #1 Claim Address">
-                    <input type="text" name="subscriber1Name" placeholder="Subscriber Name 1">
+
+                    <div class="row">
+                        <div class="large-5 columns">
+                            <input type="text" name="subscriber1LastName" placeholder="Subscriber Last Name">
+                        </div>
+                        <div class="large-2 columns">
+                            <input type="text" name="subscriber1MiddleInitial" placeholder="Middle Initial">
+                        </div>
+                        <div class="large-5 columns">
+                            <input type="text" name="subscriber1FirstName" placeholder="Subscriber First Name">
+                        </div>
+                    </div>
                     Subscriber #1 DOB -- (MM, DD, YY)
                     <div class="row">
                         <div class="large-3 columns">

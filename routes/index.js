@@ -77,7 +77,7 @@ router.post('/genPDF', function(req, res, next) {
         insuredEmployerName_11: par.insuredEmployerName,
         insuranceCarrier1: par.insuranceCarrier1,
         insuranceCarrier1Address: par.insuranceCarrier1Address,
-        subscriber1Name_4: par.subscriber1Name,
+        subscriber1Name_4: par.subscriber1LastName + ", " + par.subscriber1FirstName + " " + par.subscriber1MiddleInitial,
         conditionRelatedToEmployment_10a: par.conditionRelatedToEmployment,
         conditionRelatedToAuto_10b: par.conditionRelatedToAuto,
         conditionRelatedToOther_10c: par.conditionRelatedToOther,
