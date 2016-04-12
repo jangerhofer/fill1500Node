@@ -327,13 +327,13 @@
         $(function() {
             $("#submitDownload").click(function() {
                 $("[name=\"submitType\"]").remove()
-                var input = $("<input>").attr("type", "hidden").attr("name", "submitType").val("dl");
+                var input = $("<input>").attr("type", "hidden").attr("name", "submitType").val("DL");
                 $('#fillForm').append($(input));
             })
 
             $("#submitView").click(function() {
                 $("[name=\"submitType\"]").remove()
-                var input = $("<input>").attr("type", "hidden").attr("name", "submitType").val("view");
+                var input = $("<input>").attr("type", "hidden").attr("name", "submitType").val("VIEW");
                 $('#fillForm').append($(input));
             })
         })
