@@ -48,6 +48,11 @@ app.use(bodyParser.urlencoded({
   extended: false
 }))
 app.use(checkAuth)
+app.use(function (req, res, next) {
+  console.log("Request at: " + new Date());
+  console.log(req.connection.remoteAddress);
+  next()
+})
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 

@@ -32,15 +32,20 @@ router.get('/fill', function(req, res, next) {
 
 router.post('/genPDF', function(req, res, next) {
     par = req.body
-
+    sumCharges = 0.00
 
     for (var key in par) {
         par[key] = par[key].toUpperCase()
     }
 
+    // Check for empty charges
     for (i = 1; i <= 7; i++) {
-        if (!(par["charges" + i])) {
-            (par["charges" + i]) = 0
+        if (!(par["charges" + i]) || !(par["cptCode" + i])) {
+            par["charges" + i] = ""
+            par["providerID" + i] = ""
+            par["servicePlace" + i] = ""
+        } else {
+          sumCharges += parseFloat(par["charges" + i])
         }
     }
 
@@ -184,10 +189,8 @@ router.post('/genPDF', function(req, res, next) {
         dayUnits_24_6: par.dayUnits6,
         providerID_24_6: par.providerID6,
 
-        chargesTot_28: (parseFloat(par.charges1) + parseFloat(par.charges2) + parseFloat(par.charges3) + parseFloat(par.charges4) + parseFloat(par.charges5) + parseFloat(par.charges6)).toFixed(2).toString()
+        chargesTot_28: sumCharges.toFixed(2)
     }
-
-    console.log((parseFloat(par.charges1) + parseFloat(par.charges2) + parseFloat(par.charges3) + parseFloat(par.charges4) + parseFloat(par.charges5) + parseFloat(par.charges6)).toFixed(2).toString());
 
     fillPdf.generatePdf(formData, "../../1500template.pdf", function(err, output) {
         if (err) {
