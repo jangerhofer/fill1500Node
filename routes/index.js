@@ -4,6 +4,7 @@ var router = express.Router()
 var moment = require('moment')
 var fillPdf = require("fill-pdf")
 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('index', {
@@ -39,13 +40,18 @@ router.post('/genPDF', function(req, res, next) {
     }
 
     // Check for empty charges
-    for (i = 1; i <= 7; i++) {
+    for (i = 1; i <= 6; i++) {
         if (!(par["charges" + i]) || !(par["cptCode" + i])) {
-            par["charges" + i] = ""
+            par["chargesDollars" + i] = ""
+            par["chargesCents" + i] = ""
             par["providerID" + i] = ""
             par["servicePlace" + i] = ""
         } else {
             sumCharges += parseFloat(par["charges" + i])
+            //par["cptCode" + i] = parseFloat(par["cptCode" + i]).toFixed(2)
+            amount = par["charges" + i]
+            par["chargesDollars" + i] = amount.split('.')[0]
+            par["chargesCents" + i] = ((amount.split('.')[1] || '') +'00').slice(0,2)
         }
     }
 
@@ -76,7 +82,9 @@ router.post('/genPDF', function(req, res, next) {
         insuredSignature_13: par.insuredSignature,
         insuredEmployerName_11: par.insuredEmployerName,
         insuranceCarrier1: par.insuranceCarrier1,
-        insuranceCarrier1Address: par.insuranceCarrier1Address,
+        insuranceCarrier1Address: par.insuranceCarrier1Street,
+        insuranceCarrier1CityState: par.insuranceCarrier1City + ", " + par.insuranceCarrier1State,
+        insuranceCarrier1Zip: par.insuranceCarrier1Zip,
         subscriber1Name_4: par.subscriber1LastName + ", " + par.subscriber1FirstName + " " + par.subscriber1MiddleInitial,
         conditionRelatedToEmployment_10a: par.conditionRelatedToEmployment,
         conditionRelatedToAuto_10b: par.conditionRelatedToAuto,
@@ -105,6 +113,7 @@ router.post('/genPDF', function(req, res, next) {
         billingNPINo_33a: par.billingNPINo,
         billingPhoneAreaCode_33: par.billingPhoneAreaCode,
         billingPhoneNo_33: par.billingPhoneNo,
+
         collectionDateFromMM_24_1: par.collectionDateFromMM1,
         collectionDateFromDD_24_1: par.collectionDateFromDD1,
         collectionDateFromYY_24_1: par.collectionDateFromYY1,
@@ -115,7 +124,8 @@ router.post('/genPDF', function(req, res, next) {
         cptCode_24_1: par.cptCode1,
         modifier_24_1: par.modifier1,
         diagnosis_24_1: par.diagnosis1,
-        charges_24_1: par.charges1,
+        chargesDollars_24_1: par.chargesDollars1,
+        chargesCents_24_1: par.chargesCents1,
         dayUnits_24_1: par.dayUnits1,
         providerID_24_1: par.providerID1,
 
@@ -129,7 +139,8 @@ router.post('/genPDF', function(req, res, next) {
         cptCode_24_2: par.cptCode2,
         modifier_24_2: par.modifier2,
         diagnosis_24_2: par.diagnosis2,
-        charges_24_2: par.charges2,
+        chargesDollars_24_2: par.chargesDollars2,
+        chargesCents_24_2: par.chargesCents2,
         dayUnits_24_2: par.dayUnits2,
         providerID_24_2: par.providerID2,
 
@@ -143,7 +154,8 @@ router.post('/genPDF', function(req, res, next) {
         cptCode_24_3: par.cptCode3,
         modifier_24_3: par.modifier3,
         diagnosis_24_3: par.diagnosis3,
-        charges_24_3: par.charges3,
+        chargesDollars_24_3: par.chargesDollars3,
+        chargesCents_24_3: par.chargesCents3,
         dayUnits_24_3: par.dayUnits3,
         providerID_24_3: par.providerID3,
 
@@ -157,7 +169,8 @@ router.post('/genPDF', function(req, res, next) {
         cptCode_24_4: par.cptCode4,
         modifier_24_4: par.modifier4,
         diagnosis_24_4: par.diagnosis4,
-        charges_24_4: par.charges4,
+        chargesDollars_24_4: par.chargesDollars4,
+        chargesCents_24_4: par.chargesCents4,
         dayUnits_24_4: par.dayUnits4,
         providerID_24_4: par.providerID4,
 
@@ -171,7 +184,8 @@ router.post('/genPDF', function(req, res, next) {
         cptCode_24_5: par.cptCode5,
         modifier_24_5: par.modifier5,
         diagnosis_24_5: par.diagnosis5,
-        charges_24_5: par.charges5,
+        chargesDollars_24_5: par.chargesDollars5,
+        chargesCents_24_5: par.chargesCents5,
         dayUnits_24_5: par.dayUnits5,
         providerID_24_5: par.providerID5,
 
@@ -185,13 +199,15 @@ router.post('/genPDF', function(req, res, next) {
         cptCode_24_6: par.cptCode6,
         modifier_24_6: par.modifier6,
         diagnosis_24_6: par.diagnosis6,
-        charges_24_6: par.charges6,
+        chargesDollars_24_6: par.chargesDollars6,
+        chargesCents_24_6: par.chargesCents6,
         dayUnits_24_6: par.dayUnits6,
         providerID_24_6: par.providerID6,
 
-        chargesTot_28: sumCharges.toFixed(2)
+        chargesTotDollars_28: sumCharges.toString().split('.')[0],
+        chargesTotCents_28: ((sumCharges.toFixed(2).toString().split('.')[1] || '') +'00').slice(0,2)
     }
-
+    console.log(sumCharges.toString());
     fillPdf.generatePdf(formData, "../../1500template.pdf", function(err, output) {
         if (err) {
             console.log("ERROR at: " + new Date())
@@ -199,7 +215,7 @@ router.post('/genPDF', function(req, res, next) {
         if (!err) {
             res.type("application/pdf")
             if (par.submitType == "DL") {
-              res.setHeader('Content-disposition', 'attachment; filename=' + par.accessionNumber + '_1500.pdf')
+                res.setHeader('Content-disposition', 'attachment; filename=' + par.accessionNumber + '_1500.pdf')
             } else if (par.submitType == "PREVIEW") {
                 res.setHeader('Content-disposition', 'inline; filename=' + par.accessionNumber + '_1500.pdf')
             } else {
