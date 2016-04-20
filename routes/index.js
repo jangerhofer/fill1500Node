@@ -208,7 +208,7 @@ router.post('/genPDF', function(req, res, next) {
         chargesTotCents_28: ((sumCharges.toFixed(2).toString().split('.')[1] || '') +'00').slice(0,2)
     }
     console.log(sumCharges.toString());
-    fillPdf.generatePdf(formData, "../../1500template.pdf", function(err, output) {
+    fillPdf.generatePdf(formData, "../../1500templateTest.pdf", function(err, output) {
         if (err) {
             console.log("ERROR at: " + new Date())
         }
