@@ -35,9 +35,16 @@ router.post('/genPDF', function(req, res, next) {
     par = req.body
     sumCharges = 0.00
 
+    // Set all text to uppercase
     for (var key in par) {
         par[key] = par[key].toUpperCase()
     }
+
+
+    // Remove phantom new lines
+    par.serviceFacilityAddress = par.serviceFacilityAddress.replace('\r\n', '\r');
+
+    par.billingProviderAddress = par.billingProviderAddress.replace('\r\n', '\r');
 
     // Check for empty charges
     for (i = 1; i <= 6; i++) {
@@ -207,7 +214,8 @@ router.post('/genPDF', function(req, res, next) {
         chargesTotDollars_28: sumCharges.toString().split('.')[0],
         chargesTotCents_28: ((sumCharges.toFixed(2).toString().split('.')[1] || '') +'00').slice(0,2)
     }
-    console.log(sumCharges.toString());
+
+    console.log(par.serviceFacilityAddress);
     fillPdf.generatePdf(formData, "../../1500template.pdf", function(err, output) {
         if (err) {
             console.log("ERROR at: " + new Date())
